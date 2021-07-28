@@ -23,9 +23,9 @@ pipeline {
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy Stage"
-				bat "${cmd} deploy -DtargetEnv=TEST"
+				bat "${cmd} deploy -DtargetEnv=DEV"
 				echo "Executing tests"
-				bat "${cmd} test -Dbda.targetEnv=TEST"
+				bat "${cmd} test -Dbda.targetEnv=DEV"
 				junit "${reportDir}/TEST-*.xml"
 			}
 		}
